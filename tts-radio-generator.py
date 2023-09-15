@@ -5,6 +5,7 @@ import getopt
 from google.cloud import texttospeech
 from pydub import AudioSegment, generators
 from ruamel.yaml import YAML
+from charset_normalizer import md__mypyc
 
 ###############################################################################
 # Function to show installed tts voices
