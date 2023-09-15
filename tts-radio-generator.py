@@ -99,8 +99,8 @@ if __name__ == '__main__':
         AudioSegment.ffprobe = conf_ffmpegHome+"\\ffprobe.exe"
     else:
         print("ERROR: ffmpeg not found!")
-        print("Download and extract ffmpeg and change the path in your config file.")
-        exit(1)
+        print("Download and extract ffmpeg and change the path in your config file.\n")
+        sys.exit(1)
 
     # Show all installed voices and the one which will be used
     if conf_TtsEngine == 'Windows':

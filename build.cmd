@@ -12,6 +12,7 @@ copy .\conf\example.csv .\dist\conf\ /Y
 copy .\sounds\*.wav .\dist\sounds\ /Y
 copy .\README.md .\dist\ /Y
 
+cd dist
 7z a -r -y -tzip "tts-radio-generator_v0-0-1.zip" *
 
 pause
