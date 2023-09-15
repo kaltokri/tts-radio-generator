@@ -6,8 +6,8 @@ Config:
   Output:
     DirWav: ./temp
     DirOgg: ./output
-    AddLengthPostfix: true
-    #AddLengthPostfix: false
+    #AddLengthPostfix: true
+    AddLengthPostfix: false
   TTS:
     Engine: Windows
     #Voice: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0
@@ -20,17 +20,17 @@ Config:
       Boost: 10
       ArgHighPass: 4000
       ArgLowPass: 3000
-    Trimm: true
-    #Trimm: false
+    #Trimm: true
+    Trimm: false
     WhiteNoise:
       Add: true
       #Add: false
       VolumeDecrease: 35
     PreSound:
-      #Add: true
-      Add: false
+      Add: true
+      #Add: false
       File: sounds/In.wav
     PostSound:
-      #Add: true
-      Add: false
+      Add: true
+      #Add: false
       File: sounds/Out.wav
