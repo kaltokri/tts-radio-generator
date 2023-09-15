@@ -1,0 +1,44 @@
+Config:
+  FfMpegHome: C:\\ProgramData\\chocolatey\\lib\\ffmpeg\\tools\\ffmpeg\\bin
+  InputCsv: ./conf/example.csv
+  Output:
+    DirWav: ./temp
+    DirOgg: ./output
+    AddLengthPostfix: true
+    #AddLengthPostfix: false
+  TTS:
+    Engine: Google
+    CredFile: ./conf/google-cred.json
+    #Voice: en-AU-Neural2-A
+    #Voice: en-AU-Neural2-B
+    #Voice: en-AU-Neural2-C
+    #Voice: en-AU-Neural2-D
+    #Voice: en-AU-News-E
+    #Voice: en-AU-News-F
+    #Voice: en-AU-News-G
+    Voice: en-AU-Polyglot-1
+    #Voice: en-AU-Standard-A
+    #Voice: en-IN-Standard-D
+    #Voice: en-GB-Wavenet-B
+  Audio:
+    Volume: 0
+    #Trimm: true
+    Trimm: false
+    Filter:
+      Apply: true
+      #Apply: false
+      Boost: 10
+      ArgHighPass: 4000
+      ArgLowPass: 3000
+    WhiteNoise:
+      Add: true
+      #Add: false
+      VolumeDecrease: 35
+    PreSound:
+      #Add: true
+      Add: false
+      File: sounds/In.wav
+    PostSound:
+      #Add: true
+      Add: false
+      File: sounds/Out.wav

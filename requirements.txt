@@ -1,0 +1,4 @@
+pydub==0.25.1
+pyttsx3==2.90
+ruamel.yaml==0.17.32
+google-cloud-texttospeech==2.14.1
