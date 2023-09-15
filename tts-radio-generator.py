@@ -7,6 +7,8 @@ from pydub import AudioSegment, generators
 from ruamel.yaml import YAML
 from charset_normalizer import md__mypyc
 
+version='0.0.1'
+
 ###############################################################################
 # Function to show installed tts voices
 ###############################################################################
@@ -51,7 +53,7 @@ def detect_leading_silence(sound, silence_threshold=-50.0, chunk_size=10):
 # Run when script is executed.
 ###############################################################################
 if __name__ == '__main__':
-    print("\nScript started\n")
+    print( f"\nTool version {version} started\n" )
 
     confFilePath = "./conf/default.yml"
 
