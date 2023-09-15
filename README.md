@@ -10,9 +10,9 @@ I searched the web and found some existing projects which sounds more or less th
 - [DCS_RadioComm_VoiceLineGenerator][2]:
     A nearly perfect match, but I needed the features which are planned for the future.
 
-I had the idea to fork DCS_RadioComm_VoiceLineGenerator, add the featrures I need by myself and make a merge request.
+I had the idea to fork DCS_RadioComm_VoiceLineGenerator, add the featrures I needed by myself and make a merge request.
 But the way DCS_RadioComm_VoiceLineGenerator is coded is above my Python skill. So I was forced to create this tool from scratch.
-But the code adamclmns was a great help and good insperation. So many thanks to him for his work!
+But the code adamclmns has shared was a great help and a good insperation. So many thanks to him for his work!
 
 # Features
 
@@ -35,7 +35,7 @@ If you want to run the script with Python you need:
 
 I'll will to to create a all-in-one exe file for a people who don't want to setup Python.
 
-# How to use
+# How to use the source code
 
 - Save this repo somewhere onto your hard disk
 - Install all prerequisits
@@ -48,9 +48,21 @@ I'll will to to create a all-in-one exe file for a people who don't want to setu
 - Run `tts-radio-generator.py -c ./conf/custom-myproject.yml`
 - If you want to use Google TTS you can use `default-google.yml` as a template
 
+# How to use the release
+
+- Save the release somewhere onto your hard disk
+- Unzip it
+- Run `tts-radio-generator.exe` without any parameters
+- It will use `./conf/default.yml` and `./conf/example.csv` to create sound files with Microsoft TTS
+- Install as much languages as you like to your windows, if you want to use Windows Text-To-Speech with another voice
+- Copy `default.yml` to a new file, e.g. `custom-myproject.yml`
+- Copy `example.csv` to a new file, e.g. `custom-myproject.csv`
+- Change both files to match your needs
+- Run `tts-radio-generator.exe -c ./conf/custom-myproject.yml`
+- If you want to use Google TTS you can use `default-google.yml` as a template
+
 # ToDo
 
-- Create a EXE all-in-one distribution
 - Maybe add more TTS engines like AWS or Azure
 
 [1]: <https://github.com/akaAgar/radio-message-generator>
