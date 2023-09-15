@@ -1,5 +1,7 @@
 Config:
-  FfMpegHome: C:\\ProgramData\\chocolatey\\lib\\ffmpeg\\tools\\ffmpeg\\bin
+  #FfMpegHome: C:\\ProgramData\\chocolatey\\lib\\ffmpeg\\tools\\ffmpeg\\bin
+  #FfMpegHome: .\\ffmpeg-master-latest-win64-gpl-shared\\bin
+  FfMpegHome: .\\ffmpeg\\bin
   InputCsv: ./conf/example.csv
   Output:
     DirWav: ./temp

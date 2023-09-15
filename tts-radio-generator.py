@@ -5,9 +5,10 @@ import getopt
 from google.cloud import texttospeech
 from pydub import AudioSegment, generators
 from ruamel.yaml import YAML
+from os.path import exists
 #from charset_normalizer import md__mypyc
 
-version='0.0.1'
+version='0.0.2'
 
 ###############################################################################
 # Function to show installed tts voices
@@ -92,6 +93,14 @@ if __name__ == '__main__':
     conf_TtsEngine = conf['Config']['TTS']['Engine']
 
     print("Using FFMPEG_HOME: ", conf_ffmpegHome)
+    if exists(conf_ffmpegHome+"\\ffmpeg.exe"):
+        AudioSegment.converter = conf_ffmpegHome+"\\ffmpeg.exe"
+        AudioSegment.ffmpeg = conf_ffmpegHome+"\\ffmpeg.exe"
+        AudioSegment.ffprobe = conf_ffmpegHome+"\\ffprobe.exe"
+    else:
+        print("ERROR: ffmpeg not found!")
+        print("Download and extract ffmpeg and change the path in your config file.")
+        exit(1)
 
     # Show all installed voices and the one which will be used
     if conf_TtsEngine == 'Windows':

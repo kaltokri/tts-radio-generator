@@ -27,18 +27,25 @@ But the code adamclmns has shared was a great help and a good insperation. So ma
 
 # Prerequisits
 
-If you want to run the script with Python you need:
+Python is able to process wav files directly, but for saving the file in ogg format ffmpeg is needed.
+There are different way to get ffmpeg:
 
-- Python
-- All libraries from requirements.txt (run install.cmd to get them)
-- ffmpeg installed by chocolaty
+- The easiest is to use [chocolaty][3] to install [ffmpeg][4] with the command `choco install ffmpeg`
+- Then change the value `FfMpegHome` in your yml file (an example is included in `defaul.yml`)
 
-I'll will to to create a all-in-one exe file for a people who don't want to setup Python.
+Another way is to download it directly from BtbN:
+- Download [ffmpeg-master-latest-win64-gpl-shared.zip][5]
+- Place it in the same folder as `tts-radio-generator.exe`
+- Extract it and rename it to create the following structure: `ffmpeg\bin\ffmpeg.exe`
+- Adopt the path to the bin folder in your yml configuration file (an example is included in `defaul.yml`)
 
 # How to use the source code
 
+If you want to run the script with Python you need:
+
+- Python 3.x
+- All libraries from requirements.txt (run `install.cmd`` to get them)
 - Save this repo somewhere onto your hard disk
-- Install all prerequisits
 - Run `tts-radio-generator.py` without any parameters
 - It will use `./conf/default.yml` and `./conf/example.csv` to create sound files with Microsoft TTS
 - Install as much languages as you like to your windows, if you want to use Windows Text-To-Speech with another voice
@@ -67,3 +74,6 @@ I'll will to to create a all-in-one exe file for a people who don't want to setu
 
 [1]: <https://github.com/akaAgar/radio-message-generator>
 [2]: <https://github.com/adamclmns/DCS_RadioComm_VoiceLineGenerator>
+[3]: <https://chocolatey.org/install>
+[4]: <https://community.chocolatey.org/packages/ffmpeg>
+[5]: <https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl-shared.zip>

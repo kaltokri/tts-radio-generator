@@ -3,3 +3,5 @@ output/*
 dist/*
 tts-radio-generator.spec
 *.exe
+ffmpeg/*
+*.zip
