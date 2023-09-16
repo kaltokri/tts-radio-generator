@@ -1,4 +1,2 @@
-rmdir /S /Q .\build
-rmdir /S /Q .\dist
-del *.exe /Q
-del *.spec /Q
+del .\temp\*.wav /Q
+del .\output\*.ogg /Q

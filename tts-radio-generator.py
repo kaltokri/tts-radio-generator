@@ -8,7 +8,7 @@ from ruamel.yaml import YAML
 from os.path import exists
 #from charset_normalizer import md__mypyc
 
-version='0.0.2'
+version='0.0.3'
 
 ###############################################################################
 # Function to show installed tts voices
@@ -107,22 +107,30 @@ if __name__ == '__main__':
         print("Using TextToSpeech engine from Windows.")
         showVoices()
         engine = pyttsx3.init()
-        engine.setProperty('volume', 1.0)
-        engine.setProperty('rate', 200)
+        engine.setProperty('volume', conf['Config']['TTS']['Volume'])
+        engine.setProperty('rate', conf['Config']['TTS']['Rate'])
         engine.setProperty('voice', conf_voice)
 
     if conf_TtsEngine == 'Google':
         print("Using TextToSpeech engine from Google.")
         print("\nHere you will find a list with all voices:")
         print("https://cloud.google.com/text-to-speech/docs/voices\n")
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = conf['Config']['TTS']['CredFile']
+        if exists(conf['Config']['TTS']['CredFile']):
+            os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = conf['Config']['TTS']['CredFile']
+        else:
+            sys.exit("Unable to find json file with google credentials specified in the config.\n")
+
         client = texttospeech.TextToSpeechClient()
         voice = texttospeech.VoiceSelectionParams(
             language_code=(conf['Config']['TTS']['Voice'])[:5],
             name=conf['Config']['TTS']['Voice']
         )
         audio_config = texttospeech.AudioConfig(
-            audio_encoding=texttospeech.AudioEncoding.LINEAR16
+            audio_encoding=texttospeech.AudioEncoding.LINEAR16,
+            speaking_rate=conf['Config']['TTS']['Rate'],
+            pitch = conf['Config']['TTS']['Pitch'],
+            volume_gain_db = conf['Config']['TTS']['Volume'],
+            effects_profile_id=['large-automotive-class-device']
         )
 
     # Read file with text lines for tts
@@ -182,12 +190,14 @@ if __name__ == '__main__':
         if conf['Config']['Audio']['PreSound']['Add']:
             print( f"Adding pre sound file:  '{conf_IN_WAV}'" )
             startClick = AudioSegment.from_wav(conf_IN_WAV)
+            startClick = startClick - conf['Config']['Audio']['PreSound']['VolumeDecrease']
             audioStream = startClick + audioStream
 
         # Adding post sound
         if conf['Config']['Audio']['PostSound']['Add']:
             print( f"Adding post sound file: '{conf_OUT_WAV}'\n" )
             endClick = AudioSegment.from_wav(conf_OUT_WAV)
+            endClick = endClick - conf['Config']['Audio']['PostSound']['VolumeDecrease']
             audioStream = audioStream + endClick
 
         audioDuration=len(audioStream)

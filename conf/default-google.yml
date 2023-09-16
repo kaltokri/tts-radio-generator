@@ -1,11 +1,13 @@
 Config:
-  FfMpegHome: C:\\ProgramData\\chocolatey\\lib\\ffmpeg\\tools\\ffmpeg\\bin
+  #FfMpegHome: C:\\ProgramData\\chocolatey\\lib\\ffmpeg\\tools\\ffmpeg\\bin
+  #FfMpegHome: .\\ffmpeg-master-latest-win64-gpl-shared\\bin
+  FfMpegHome: .\\ffmpeg\\bin
   InputCsv: ./conf/example.csv
   Output:
     DirWav: ./temp
     DirOgg: ./output
-    AddLengthPostfix: true
-    #AddLengthPostfix: false
+    #AddLengthPostfix: true
+    AddLengthPostfix: false
   TTS:
     Engine: Google
     CredFile: ./conf/google-cred.json
@@ -20,6 +22,12 @@ Config:
     #Voice: en-AU-Standard-A
     #Voice: en-IN-Standard-D
     #Voice: en-GB-Wavenet-B
+    # speakingRate 0.25 - 4.0. 1.0 is normal
+    Rate: 1.0
+    # Speaking pitch, in the range [-20.0, 20.0]. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch.
+    Pitch: 0.0
+    # Volume gain (in dB) of the normal native volume supported by the specific voice, in the range [-96.0, 16.0]. If unset, or set to a value of 0.0 (dB), will play at normal native signal amplitude.
+    Volume: 16.0
   Audio:
     Volume: 0
     #Trimm: true
@@ -35,10 +43,12 @@ Config:
       #Add: false
       VolumeDecrease: 35
     PreSound:
-      #Add: true
-      Add: false
+      Add: true
+      #Add: false
       File: sounds/In.wav
+      VolumeDecrease: 10
     PostSound:
-      #Add: true
-      Add: false
+      Add: true
+      #Add: false
       File: sounds/Out.wav
+      VolumeDecrease: 10

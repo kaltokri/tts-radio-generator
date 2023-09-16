@@ -12,6 +12,8 @@ Config:
     Engine: Windows
     #Voice: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0
     Voice: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-GB_HAZEL_11.0
+    Rate: 180
+    Volume: 1.0
   Audio:
     Volume: 0
     Filter:
@@ -30,7 +32,9 @@ Config:
       Add: true
       #Add: false
       File: sounds/In.wav
+      VolumeDecrease: 10
     PostSound:
       Add: true
       #Add: false
       File: sounds/Out.wav
+      VolumeDecrease: 10
